@@ -13,8 +13,11 @@ RUN npm install
 # Copy the rest of the application code
 COPY . .
 
+# Build the TypeScript code
+RUN npm run build
+
 # Expose the port your app runs on
 EXPOSE 3000
 
 # Command to run your app using npm
-CMD ["npm", "run", "start:prod"]
+CMD ["node", "dist/main"]
